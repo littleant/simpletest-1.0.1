@@ -6,5 +6,7 @@ Otherwise use a better Unit-Testing-framework!**
 
 ## Why does this exist?
 If you have a CakePHP 1.3 installation you know, that it requires Simpletest 1.0.1.
+
 If you [upgraded CakePHP 1.3 to PHP 7](https://github.com/littleant/cakephp-1.3.21), you need an upgraded Simpletest 1.0.1 for PHP 7, too.
-This is an attempt to make this happen.
+
+This is an attempt to make a usable Simpletest 1.0.1 for PHP 7 happen.
