@@ -1,5 +1,5 @@
 # Simpletest 1.0.1 for PHP 7.3
-An unofficial port of Simpletest 1.0.1 to PHP 7.3.
+An unofficial port of [Simpletest](http://simpletest.sourceforge.net/) 1.0.1 to PHP 7.3.
 
 **:warning: Only use this code, if you have an active Simpletest 1.0.1 version that you have to port to PHP 7!
 Otherwise use a better Unit-Testing-framework!**
