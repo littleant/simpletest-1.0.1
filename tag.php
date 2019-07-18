@@ -544,7 +544,7 @@ class SimpleImageSubmitTag extends SimpleWidget
      *    @param integer $y                  Y coordinate of click.
      *    @access public
      */
-    public function write(&$encoding, $x, $y)
+    public function writeWithCoordinates(&$encoding, $x, $y)
     {
         if ($this->getName()) {
             $encoding->add($this->getName() . '.x', $x);
@@ -553,6 +553,11 @@ class SimpleImageSubmitTag extends SimpleWidget
             $encoding->add('x', $x);
             $encoding->add('y', $y);
         }
+    }
+
+    public function write(&$encoding)
+    {
+        throw new RuntimeException('Please update your code to use SimpleImageSubmitTag->writeWithCoordinates() instead!');
     }
 }
     

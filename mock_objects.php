@@ -1232,7 +1232,7 @@ class Mock
      *    @static
      *    @access public
      */
-    public function generate($class, $mock_class = false, $methods = false)
+    public static function generate($class, $mock_class = false, $methods = false)
     {
         $generator = new MockGenerator($class, $mock_class);
         return $generator->generateSubclass($methods);
@@ -1250,7 +1250,7 @@ class Mock
      *    @static
      *    @access public
      */
-    public function generatePartial($class, $mock_class, $methods)
+    public static function generatePartial($class, $mock_class, $methods)
     {
         $generator = new MockGenerator($class, $mock_class);
         return $generator->generatePartial($methods);

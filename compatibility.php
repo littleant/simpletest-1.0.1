@@ -142,7 +142,7 @@ class SimpleTestCompatibility
      *    @access public
      *    @static
      */
-    public function isA($object, $class)
+    public static function isA($object, $class)
     {
         if (version_compare(phpversion(), '5') >= 0) {
             if (! class_exists($class, false)) {

@@ -48,7 +48,7 @@ class SimpleTest
      *    @static
      *    @access public
      */
-    public function ignore($class)
+    public static function ignore($class)
     {
         $registry = &SimpleTest::_getRegistry();
         $registry['IgnoreList'][strtolower($class)] = true;
@@ -69,7 +69,7 @@ class SimpleTest
      *    @static
      *    @access public
      */
-    public function ignoreParentsIfIgnored($classes)
+    public static function ignoreParentsIfIgnored($classes)
     {
         $registry = &SimpleTest::_getRegistry();
         foreach ($classes as $class) {
@@ -134,7 +134,7 @@ class SimpleTest
      *    @access public
      *    @static
      */
-    public function isIgnored($class)
+    public static function isIgnored($class)
     {
         $registry = &SimpleTest::_getRegistry();
         return isset($registry['IgnoreList'][strtolower($class)]);
@@ -143,7 +143,7 @@ class SimpleTest
     /**
      *    @deprecated
      */
-    public function setMockBaseClass($mock_base)
+    public static function setMockBaseClass($mock_base)
     {
         $registry = &SimpleTest::_getRegistry();
         $registry['MockBaseClass'] = $mock_base;
@@ -152,7 +152,7 @@ class SimpleTest
     /**
      *    @deprecated
      */
-    public function getMockBaseClass()
+    public static function getMockBaseClass()
     {
         $registry = &SimpleTest::_getRegistry();
         return $registry['MockBaseClass'];
@@ -168,7 +168,7 @@ class SimpleTest
      *    @param string $password  Proxy password for authentication.
      *    @access public
      */
-    public function useProxy($proxy, $username = false, $password = false)
+    public static function useProxy($proxy, $username = false, $password = false)
     {
         $registry = &SimpleTest::_getRegistry();
         $registry['DefaultProxy'] = $proxy;
@@ -215,7 +215,7 @@ class SimpleTest
      *    @access private
      *    @static
      */
-    public function &_getRegistry()
+    public static function &_getRegistry()
     {
         static $registry = false;
         if (! $registry) {
@@ -231,7 +231,7 @@ class SimpleTest
      *    @access public
      *    @static
      */
-    public function &getContext()
+    public static function &getContext()
     {
         static $context = false;
         if (! $context) {
@@ -246,7 +246,7 @@ class SimpleTest
      *    @access private
      *    @static
      */
-    public function _getDefaults()
+    public static function _getDefaults()
     {
         return array(
                 'StubBaseClass' => 'SimpleStub',
@@ -453,7 +453,7 @@ class SimpleTestOptions extends SimpleTest
     /**
      *    @deprecated
      */
-    public function ignore($class)
+    public static function ignore($class)
     {
         return Simpletest::ignore($class);
     }
@@ -461,7 +461,7 @@ class SimpleTestOptions extends SimpleTest
     /**
      *    @deprecated
      */
-    public function isIgnored($class)
+    public static function isIgnored($class)
     {
         return Simpletest::isIgnored($class);
     }
@@ -469,7 +469,7 @@ class SimpleTestOptions extends SimpleTest
     /**
      *    @deprecated
      */
-    public function setMockBaseClass($mock_base)
+    public static function setMockBaseClass($mock_base)
     {
         return Simpletest::setMockBaseClass($mock_base);
     }
@@ -477,7 +477,7 @@ class SimpleTestOptions extends SimpleTest
     /**
      *    @deprecated
      */
-    public function getMockBaseClass()
+    public static function getMockBaseClass()
     {
         return Simpletest::getMockBaseClass();
     }
@@ -485,7 +485,7 @@ class SimpleTestOptions extends SimpleTest
     /**
      *    @deprecated
      */
-    public function useProxy($proxy, $username = false, $password = false)
+    public static function useProxy($proxy, $username = false, $password = false)
     {
         return Simpletest::useProxy($proxy, $username, $password);
     }

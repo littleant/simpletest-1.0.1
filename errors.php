@@ -221,8 +221,9 @@ class SimpleErrorQueue
      */
     public function assertNoErrors($message)
     {
+        $expectation = new TrueExpectation();
         return $this->_test->assert(
-                new TrueExpectation(),
+                $expectation,
                 count($this->_queue) == 0,
                 sprintf($message, 'Should be no errors')
         );
@@ -254,7 +255,7 @@ class SimpleErrorQueue
      *    @access public
      *    @static
      */
-    public function getSeverityAsString($severity)
+    public static function getSeverityAsString($severity)
     {
         static $map = array(
                 E_STRICT => 'E_STRICT',

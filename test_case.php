@@ -43,7 +43,7 @@ class SimpleTestCase
 {
     public $_label = false;
     public $_reporter;
-    public $_observers;
+    public $_observers = array();
     public $_should_skip = false;
 
     /**
@@ -679,7 +679,7 @@ class TestSuite
      *    @access public
      *    @static
      */
-    public function getBaseTestCase($class)
+    public static function getBaseTestCase($class)
     {
         while ($class = get_parent_class($class)) {
             $class = strtolower($class);
