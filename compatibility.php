@@ -20,7 +20,7 @@ class SimpleTestCompatibility
      *    @access public
      *    @static
      */
-    public function copy($object)
+    public static function copy($object)
     {
         if (version_compare(phpversion(), '5') >= 0) {
             eval('$copy = clone $object;');
@@ -39,7 +39,7 @@ class SimpleTestCompatibility
      *    @access public
      *    @static
      */
-    public function isIdentical($first, $second)
+    public static function isIdentical($first, $second)
     {
         if (version_compare(phpversion(), '5') >= 0) {
             return SimpleTestCompatibility::_isIdenticalType($first, $second);
@@ -58,7 +58,7 @@ class SimpleTestCompatibility
      *    @access private
      *    @static
      */
-    public function _isIdenticalType($first, $second)
+    public static function _isIdenticalType($first, $second)
     {
         if (gettype($first) != gettype($second)) {
             return false;
@@ -89,7 +89,7 @@ class SimpleTestCompatibility
      *    @access private
      *    @static
      */
-    public function _isArrayOfIdenticalTypes($first, $second)
+    public static function _isArrayOfIdenticalTypes($first, $second)
     {
         if (array_keys($first) != array_keys($second)) {
             return false;
@@ -114,7 +114,7 @@ class SimpleTestCompatibility
      *    @access public
      *    @static
      */
-    public function isReference(&$first, &$second)
+    public static function isReference(&$first, &$second)
     {
         if (version_compare(phpversion(), '5', '>=') && is_object($first)) {
             return ($first === $second);
@@ -169,7 +169,7 @@ class SimpleTestCompatibility
      *    @access public
      *    @static
      */
-    public function setTimeout($handle, $timeout)
+    public static function setTimeout($handle, $timeout)
     {
         if (function_exists('stream_set_timeout')) {
             stream_set_timeout($handle, $timeout, 0);
