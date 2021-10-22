@@ -1261,7 +1261,7 @@ class Mock
      *    @access public
      *    @static
      */
-    public function getExpectationLine()
+    public static function getExpectationLine()
     {
         $trace = new SimpleStackTrace(array('expect'));
         return $trace->traceMethod();
@@ -1398,7 +1398,7 @@ class MockGenerator
             $implements = 'implements ' . implode(', ', $interfaces);
         }
         $code = "class " . $this->_mock_class . " extends " . $this->_mock_base . " $implements {\n";
-        $code .= "    function " . $this->_mock_class . "() {\n";
+        $code .= "    function __construct() {\n";
         $code .= "        \$this->" . $this->_mock_base . "();\n";
         $code .= "    }\n";
         if (in_array('__construct', $this->_reflection->getMethods())) {
@@ -1424,7 +1424,7 @@ class MockGenerator
         $code .= "    var \$_mock;\n";
         $code .= $this->_addMethodList(array_merge($methods, $this->_reflection->getMethods()));
         $code .= "\n";
-        $code .= "    function " . $this->_mock_class . "() {\n";
+        $code .= "    function __construct() {\n";
         $code .= "        \$this->_mock = new " . $this->_mock_base . "();\n";
         $code .= "        \$this->_mock->disableExpectationNameChecks();\n";
         $code .= "    }\n";
@@ -1451,7 +1451,7 @@ class MockGenerator
         $code .= "    var \$_mock;\n";
         $code .= $this->_addMethodList($methods);
         $code .= "\n";
-        $code .= "    function " . $this->_mock_class . "() {\n";
+        $code .= "    function __construct() {\n";
         $code .= "        \$this->_mock = new " . $this->_mock_base . "();\n";
         $code .= "        \$this->_mock->disableExpectationNameChecks();\n";
         $code .= "    }\n";
